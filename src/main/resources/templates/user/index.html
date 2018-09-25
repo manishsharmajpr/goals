@@ -1,0 +1,111 @@
+<html xmlns:th="http://www.thymeleaf.usercrud">
+<head lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+      <title>CRUD</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	  <style>
+		.colour {
+			color: #D3D3D3;
+		}
+		.col {
+			border: 1px solid #D3D3D3;
+		}
+		body {
+			background-image: url('/img/intro-bg.jpg');
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		
+		.b {
+			font-size: 35px;
+		}
+		
+		table {
+			margin-top: 10%;
+			width: 100%;
+		}
+		
+		td, th {
+			color: #D3D3D3;
+			border: 1px solid #D3D3D3;
+			text-align: center;
+			padding: 8px;
+		}
+		.align{
+			text-align: center;
+			min-width: 88px;
+			padding: 8px 8px 0px 8px;
+		}
+		.container-fluid{
+			padding-top: 20px;
+		}
+		.middle{
+			text-align:center;
+			padding: 8px 8px 0px 8px;
+			min-width: 88px;
+			max-height: 66px;
+		}
+	  </style>
+</head>
+<body>
+	<nav class="menu">
+	  <div class="container-fluid">
+	    <ul class="nav navbar-nav">
+	    	<li class="colour b align"><span>CRUD Template</span></li>
+	      	<li class="middle"><a href="/usercrud/create" class="colour align btn">Create</a></li>
+		    <li class="middle"><a href="/usercrud/all" class="colour align btn">All</a></li>
+	    </ul>
+	  </div>
+	</nav><hr class="col"/>
+	  
+	<div class="container">
+	<table>
+		<tr class="b">
+			<th>ID</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Address</th>
+			<th>Project</th>
+			<th colspan = "3">Actions</th>
+		</tr>
+		<tr th:each="user: ${users}">
+			<td th:text="${user.id}"></td>
+			<td th:text="${user.name}"></td>
+			<td th:text="${user.age}"></td>
+			<td th:text="${user.address}"></td>
+			<td th:text="${user.project}"></td>
+			<td>
+				<a th:href="@{/usercrud/edit(id=${user.id})}" th:value="${user.id}">
+					<button class ="btn btn-info" type="submit" name="id">Edit</button>
+				</a>
+			</td>
+			<td>
+				<a th:href="@{/usercrud/view(id=${user.id})}" th:value="${user.id}">
+					<button class ="btn btn-warning" type="submit" name="id">View</button>
+				</a>
+			</td>
+			<td>
+				<a th:onclick="'deleteRecord('+ *{user.id} +')'" th:value="${user.id}">
+					<button class ="btn btn-danger" type="submit" name="id">Remove</button>
+				</a>
+			</td>
+		</tr>
+	</table>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+<script>
+	function deleteRecord(id) {
+		$.ajax({
+		  url: "/usercrud/delete?id="+id,
+		  type: "DELETE",
+		  success: function() {
+			  location.reload();
+		  }
+		})
+	}
+	
+</script>
+</html>

@@ -1,0 +1,89 @@
+<html xmlns:th="http://www.thymeleaf.usercrud">
+<head lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+      <title>Create</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	  <style>
+		body {
+			background-image: url('/img/intro-bg.jpg');
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		.b {
+			font-size: 35px;
+		}
+		.list{
+			text-align: left;
+			padding-bottom: 20px;
+			width: 40%;
+			list-style: none;
+		} 
+		h3{
+			padding-left: 40px;
+			padding-top: 20px;
+			font-weight: bold;
+		}
+		.colour {
+			color: #D3D3D3;
+		}
+		.col {
+			border: 1px solid #D3D3D3;
+		}
+		.align{
+			text-align: center;
+			min-width: 88px;
+			padding: 8px 8px 0px 8px;
+		}
+		.container-fluid{
+			padding-top: 20px;
+		}
+		.middle{
+			text-align:center;
+			padding: 8px 8px 0px 8px;
+			min-width: 88px;
+			max-height: 66px;
+		}
+		.font{
+			font-size: 18px;
+			font-weight: bold;
+		}
+	  </style>
+</head>
+<body>
+	<nav class="menu">
+	  <div class="container-fluid">
+	    <ul class="nav navbar-nav">
+	    	<li class="colour b align"><span>CRUD Template</span></li>
+	      	<li class="middle"><a href="/usercrud/create" class="colour align btn">Create</a></li>
+		    <li class="middle"><a href="/usercrud/all" class="colour align btn">All</a></li>
+	    </ul>
+	  </div>
+	</nav><hr class="col"/>
+	<h3 class="colour">Details:</h3>
+	<div th:object="${user}">
+	<div class="container-fluid">
+		<ul>
+			<li class="colour font">ID:</li><li class="list">
+			<p class="colour" th:text="${user.id}"></p>
+			</li>
+			<li class="colour font">Name:</li><li class="list">
+			<p class="colour" th:text="${user.name}"></p>
+			</li>
+			<li class="colour font">Age:</li><li class="list">
+			<p class="colour" th:text="${user.age}"></p>
+			</li>
+			<li class="colour font">Address: </li><li class="list">
+			<p class="colour" th:text="${user.address}"></p>
+			</li>
+			<li class="colour font">Project: </li><li class="list">
+			<p class="colour" th:text="${user.project}"></p>
+			</li>
+		</ul>
+	</div>
+    </div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
+
