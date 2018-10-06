@@ -26,7 +26,12 @@ public class UserController {
 		model.addAttribute("users", users);
 		return new ModelAndView("user/index");
 	}
-
+	
+	@RequestMapping(value = "/login")
+	public ModelAndView login(Model model) {
+		return new ModelAndView("user/login");
+	}
+	
 	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
 	public String delete(@RequestParam("id") int id, Model model) {
 		manager.delete(id);
