@@ -18,11 +18,9 @@ spring:
       ddl-auto: update 
 logging:
   level:
-    org:
-      hibernate:
-        stat: debug
-        type: trace
-    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+    guru.springframework.security: DEBUG
+    org.hibernate: DEBUG
   jpa:
     generate-ddl: true
     show-sql: true
@@ -47,17 +45,17 @@ logging:
       favor-path-extension: false
   
 security:
-  oauth2:
+ oauth2:
+    sso:
+      loginPath: /auth/login
     client:
       client-id: D3nLYOh_EyAp5KY2JHwja3ISzTYa
       client-secret: 0XL5PKZPR42enw8Fu6HVC9cah4Ma
-      access-token-uri: https://ec2-34-220-78-195.us-west-2.compute.amazonaws.com:9443/oauth2/token
+      access-token-uri: https://ec2-34-220-78-195.us-west-2.compute.amazonaws.com:9443/oauth2endpoint/token
       user-authorization-uri: https://ec2-34-220-78-195.us-west-2.compute.amazonaws.com:9443/oauth2/authorize
       pre-established-redirect-uri: http://localhost:5090/usercrud/all
       useCurrentUri: false
-      grant-type: code
     resource:
-      user-info-uri:  https://ec2-34-220-78-195.us-west-2.compute.amazonaws.com:9443/oauth2/userinfo
+      user-info-uri:  http://www.dev-services.agilestructure.in/api/v1/sessions/current
       token-info-uri:  https://ec2-34-220-78-195.us-west-2.compute.amazonaws.com:9443/oauth2/introspect
-      prefer-token-info: true
-
+      prefer-token-info: false

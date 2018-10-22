@@ -109,12 +109,12 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
 			<version>5.0.7.RELEASE</version>
-		</dependency>
-			<dependency>
+		 </dependency>
+			<!--<dependency>
 			<groupId>com.metacube</groupId>
 			<artifactId>auth-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		</dependency> -->
 
 	</dependencies>
 
