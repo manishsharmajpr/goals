@@ -1,7 +1,5 @@
 server:
   port: 5090
-  session:
-    timeout: 99999
       
 spring:
   datasource:
@@ -24,7 +22,7 @@ logging:
       hibernate:
         stat: debug
         type: trace
-
+    org.springframework.security: DEBUG
   jpa:
     generate-ddl: true
     show-sql: true
@@ -48,5 +46,18 @@ logging:
     contentnegotiation:  #boot2
       favor-path-extension: false
   
-
+security:
+  oauth2:
+    client:
+      client-id: D3nLYOh_EyAp5KY2JHwja3ISzTYa
+      client-secret: 0XL5PKZPR42enw8Fu6HVC9cah4Ma
+      access-token-uri: https://ec2-34-220-78-195.us-west-2.compute.amazonaws.com:9443/oauth2/token
+      user-authorization-uri: https://ec2-34-220-78-195.us-west-2.compute.amazonaws.com:9443/oauth2/authorize
+      pre-established-redirect-uri: http://localhost:5090/usercrud/all
+      useCurrentUri: false
+      grant-type: code
+    resource:
+      user-info-uri:  https://ec2-34-220-78-195.us-west-2.compute.amazonaws.com:9443/oauth2/userinfo
+      token-info-uri:  https://ec2-34-220-78-195.us-west-2.compute.amazonaws.com:9443/oauth2/introspect
+      prefer-token-info: true
 

@@ -29,7 +29,7 @@ public class UserManagerImpl implements UserManager {
 
 	@Override
 	public User getUser(Integer id){  
-        return repository.findOne(id);  
+        return repository.findById(id).orElse(null); 
     }
 
 	@Override
@@ -39,7 +39,7 @@ public class UserManagerImpl implements UserManager {
 
 	@Override
     public void delete(Integer id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 	
 	@Override

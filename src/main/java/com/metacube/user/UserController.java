@@ -27,10 +27,10 @@ public class UserController {
 		return new ModelAndView("user/index");
 	}
 	
-	@RequestMapping(value = "/login")
+	/*@RequestMapping(value = "/login")
 	public ModelAndView login(Model model) {
 		return new ModelAndView("user/login");
-	}
+	}*/
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
 	public String delete(@RequestParam("id") int id, Model model) {
