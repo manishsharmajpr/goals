@@ -12,28 +12,28 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 /**
  * OAuth2  Authorization Server Configuration
  */
-@EnableAuthorizationServer
-@Configuration
-public class AuthorizationServerConfiguration  extends AuthorizationServerConfigurerAdapter {
+//@EnableAuthorizationServer
+//@Configuration
+public class AuthorizationServerConfiguration /* extends AuthorizationServerConfigurerAdapter */{
 
-    @Override
-    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory().withClient("client")
-                .scopes("read","write")
-                .secret("secret")
-                .authorizedGrantTypes("authorization_code","password","implicit","client_credentials");}
-
-    @Override
-    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        super.configure(security);
-    }
-
-    @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-       endpoints.authenticationManager(authenticationManager);
-    }
-
-    @Autowired
-    @Qualifier("authenticationManagerBean")
-    private AuthenticationManager authenticationManager;
+//    @Override
+//    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+//        clients.inMemory().withClient("client")
+//                .scopes("read","write")
+//                .secret("secret")
+//                .authorizedGrantTypes("authorization_code","password","implicit","client_credentials");}
+//
+//    @Override
+//    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+//        super.configure(security);
+//    }
+//
+//    @Override
+//    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+//       endpoints.authenticationManager(authenticationManager);
+//    }
+//
+//    @Autowired
+//    @Qualifier("authenticationManagerBean")
+//    private AuthenticationManager authenticationManager;
 }

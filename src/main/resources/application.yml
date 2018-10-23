@@ -59,3 +59,15 @@ security:
       user-info-uri:  http://www.dev-services.agilestructure.in/api/v1/sessions/current
       token-info-uri:  https://ec2-34-220-78-195.us-west-2.compute.amazonaws.com:9443/oauth2/introspect
       prefer-token-info: false
+      
+custom-sso:
+  server: https://ec2-34-220-78-195.us-west-2.compute.amazonaws.com:9443/auth
+  client-id: D3nLYOh_EyAp5KY2JHwja3ISzTYa  
+  client-secret:  0XL5PKZPR42enw8Fu6HVC9cah4Ma
+  scopes: openid
+  redirect-uri: http://localhost:5090/usercrud/all
+
+  connection:
+   requestTimeout: 3000 
+   timeout: 3000
+   readTimeout: 3000       

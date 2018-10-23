@@ -19,7 +19,7 @@ import org.springframework.security.web.util.matcher.RequestHeaderRequestMatcher
 @ComponentScan("com.metacube.user*")
 @EnableJpaRepositories("com.metacube.user*")
 @EntityScan("com.metacube.user*")
-@EnableOAuth2Sso
+//@EnableOAuth2Sso
 //@Configuration
 //@EnableResourceServer
 //@Order(-20)
