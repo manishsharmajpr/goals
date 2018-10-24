@@ -1,52 +1,31 @@
-server:
-  port: 5090
-  session:
-    timeout: 99999
-      
-spring:
-  datasource:
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost/usercrud
-    username: root
-    password: root
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    show-sql: true
-    properties:
-      hibernate:
-        generate_statistics: true
-        format_sql: true
-    hibernate:
-      ddl-auto: update 
-logging:
-  level:
-    org:
-      hibernate:
-        stat: debug
-        type: trace
+#security:
+#  oauth2:
+#    client:
+#      clientId: 798920396682-complhl469fprqce3cgjgq4fe08vp31p.apps.googleusercontent.com
+#      clientSecret: ub2mai16XIy28NnXI7_Yzmfh
+#      accessTokenUri: https://accounts.google.com/o/oauth2/token
+#      userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
+#      scope: openid,profile,email
+#      pre-established-redirect-uri: http://localhost:8080/user
+#      registered-redirect-uri: http://localhost:8080/user
+#    resource:
+#      userInfoUri: https://www.googleapis.com/plus/v1/people/me
+logging: 
+  level: 
+    org.springframework.security: DEBUG
 
-  jpa:
-    generate-ddl: true
-    show-sql: true
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    hibernate:
-      ddl-auto : update
-  http:
-    multipart:
-      max-file-size: 1000MB
-      max-request-size: 1000MB
-    encoding:
-      charset: UTF-8
-      enabled: true
-      force: true
-
-  resources:
-    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/
-  jackson:
-    default-property-inclusion: NON_NULL
-  mvc:
-    contentnegotiation:  #boot2
-      favor-path-extension: false
-  
-
-
+security:
+  oauth2:
+    client:
+      clientId: D3nLYOh_EyAp5KY2JHwja3ISzTYa
+      clientSecret: 0XL5PKZPR42enw8Fu6HVC9cah4Ma
+      accessTokenUri: https://ec2-34-220-78-195.us-west-2.compute.amazonaws.com:9443/oauth2/token
+      userAuthorizationUri: https://ec2-34-220-78-195.us-west-2.compute.amazonaws.com:9443/oauth2/authorize
+      clientAuthenticationScheme: header
+      scope: openid,profile,email
+      pre-established-redirect-uri: http://localhost:8080/user
+      registered-redirect-uri: http://localhost:8080/user
+      token-name: Basic
+    resource:
+      userInfoUri: https://dev-services.agilestructure.in/api/v1/session/current
+      token-type: Bearer

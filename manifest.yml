@@ -1,9 +1,0 @@
-applications:
-- name: usercrud
-  instances: 1
-  memory: 1G
-  
-  services:
-    - amqp
-    - reports-db
-    
