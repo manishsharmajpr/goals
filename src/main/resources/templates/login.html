@@ -59,21 +59,22 @@
 	</nav><hr class="col"/>
 	  
 	<div class="container">
-		<form action="/login" id="form_id" method="get">
-			<div class="container-fluid">
-				<ul>
-					<li class="colour padding">Email id:</li><li class="list">
-					<input type="email" class="form-control" name="email"/>
-					</li>
-					  <li class="list">
-					<input type="hidden" class="form-control" name="client_id" value="222" />
-					</li>  
-					<li class="list"><input class="btn btn-primary submit" type="submit" value="Submit"/></li>
-				</ul>
-			</div>
-		</form>
+		
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
+<script>
+/* function addHeader(e) {
+	e.preventDefault();
+	$.ajax({
+		  type: "POST",
+		  beforeSend: function(request) {
+		    request.setRequestHeader("OauthClientKey", "222");
+		  },
+		  url: "https://newac.herokuapp.com/sessions",
+		  contentType: "text/html"
+		});
+  } */
+</script>
 </html>

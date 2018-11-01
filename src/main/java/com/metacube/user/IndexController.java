@@ -9,7 +9,7 @@ public class IndexController {
     @RequestMapping("/")
     public String direct() {
 
-        return "redirect:/auth/login";
+        return "redirect:/usercrud/all";
     }
 
 }

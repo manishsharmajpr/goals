@@ -1,5 +1,5 @@
 server:
-  port: 5090
+  port: 8080
       
 spring:
   datasource:
@@ -45,19 +45,22 @@ logging:
   mvc:
     contentnegotiation:  #boot2
       favor-path-extension: false
-  
+ 
 security:
   oauth2:
+#    sso:
+#      loginPath: /auth/login
     client:
-      client-id: D3nLYOh_EyAp5KY2JHwja3ISzTYa
+      client-id: 222
       client-secret: 0XL5PKZPR42enw8Fu6HVC9cah4Ma
-      access-token-uri: https://ec2-34-220-78-195.us-west-2.compute.amazonaws.com:9443/oauth2/token
-      user-authorization-uri: https://ec2-34-220-78-195.us-west-2.compute.amazonaws.com:9443/oauth2/authorize
-      pre-established-redirect-uri: http://localhost:5090/usercrud/all
-      useCurrentUri: false
-      grant-type: code
+      access-token-uri: https://newac.herokuapp.com/sessions/get_access_token
+      user-authorization-uri: https://newac.herokuapp.com/sessions/new
+      clientAuthenticationScheme: form
+      scope: openid,profile,email
+      pre-established-redirect-uri: http://localhost:8080/auth/login
+      registered-redirect-uri: http://localhost:8080/auth/loginuiuiu
+      use-current-uri: false
+#      token-name: Basic
     resource:
-      user-info-uri:  https://ec2-34-220-78-195.us-west-2.compute.amazonaws.com:9443/oauth2/userinfo
-      token-info-uri:  https://ec2-34-220-78-195.us-west-2.compute.amazonaws.com:9443/oauth2/introspect
-      prefer-token-info: true
-
+      userInfoUri: http://newac.herokuapp.com/sessions/user_info
+#      token-type: Bearer
